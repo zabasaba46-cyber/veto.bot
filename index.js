@@ -45,11 +45,11 @@ console.log("👑 VETO SYSTEM READY");
 
 /* ===== PRESENCE ===== */
 client.user.setPresence({
-status: "online",
-activities: [{
-name: "⚡ VETO ROOMS",
-type: 0
-}]
+  status: "online",
+  activities: [{
+    name: "🎙 Managing VETO Voice",
+    type: 0
+  }]
 });
 
 /* ===== DIAGNOSTIC ===== */
@@ -247,7 +247,7 @@ if(cmd==="!delete"){
 roomOwners.delete(voiceChannel.id);
 await voiceChannel.delete();
 }
-
+F
 });
 
 client.login(TOKEN);

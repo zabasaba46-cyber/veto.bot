@@ -47,7 +47,7 @@ console.log("👑 VETO SYSTEM READY");
 client.user.setPresence({
   status: "online",
   activities: [{
-    name: "🎙 Managing Veto Voice",
+    name: " Managing Veto Voice🎙 ",
     type: 0
   }]
 });

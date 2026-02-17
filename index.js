@@ -26,22 +26,44 @@ EmbedBuilder
 } = require("discord.js");
 
 const client = new Client({
-intents:[
-GatewayIntentBits.Guilds,
-GatewayIntentBits.GuildVoiceStates,
-GatewayIntentBits.GuildMessages,
-GatewayIntentBits.MessageContent
-]
+  intents:[
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildPresences // 
+  ]
 });
 
 const TOKEN = process.env.TOKEN;
 const CREATE_CHANNEL_ID = process.env.CREATE_CHANNEL_ID;
 
 const roomOwners = new Map();
+client.once("clientReady", async () => {
 
-client.once("ready",()=>{
 console.log("👑 VETO SYSTEM READY");
+
+/* ===== PRESENCE ===== */
+client.user.setPresence({
+status: "online",
+activities: [{
+name: "⚡ VETO ROOMS",
+type: 0
+}]
 });
+
+/* ===== DIAGNOSTIC ===== */
+setTimeout(() => {
+console.log("========== BOT DIAGNOSTIC ==========");
+console.log("Bot Tag:", client.user.tag);
+console.log("Bot ID:", client.user.id);
+console.log("Status:", client.user.presence?.status);
+console.log("Guilds:", client.guilds.cache.size);
+console.log("====================================");
+}, 5000);
+
+});
+
 
 
 /* ================= CREATE ROOM ================= */
